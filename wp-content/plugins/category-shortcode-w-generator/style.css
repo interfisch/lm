@@ -1,0 +1,37 @@
+
+
+#calculated_code{
+	background:#ffc;
+	font-family:"Courier New",Courier,mono;
+	margin-top:10px;
+}
+
+.form-field {
+	width: 600px;
+}
+
+.label {
+	float: left;
+	width: 200px;
+}
+
+.numberofposts {
+	float: left;
+	width: 200px;	
+}
+
+.rdcsc_notes {
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align:center;
+}
+
+#rdcsc_admin_category{
+	width: 200px;
+}
+
+.rdcsc_select{
+	width: 200px;
+}
+
+
