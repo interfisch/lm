@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: http://huge-it.com/slider/
 Tags: slider, slideshow, wordpress slider, content slider, posts slider, image slider, responsive slideshow, image Rotator, jquery slider, Photo Slider, nivo slider, slider plugin, javascript slider, coin slider, responsive slider, featured-content-slider, Horizontal slider, carousel slider, wp slider, vertical slider, rotate, sidebar, best slider plugin, content slideshow, javascript slideshow, slideshow manager, slideshow plugin, image slideshow, jquery slideshow, wordpress slideshow, vertical slides, responsive, nivoslider, flex slider, coinslider, carousel, post, posts, plugin, slider widget, widget slider, widget slideshow, widget, widgets, seo, wordpress seo, media, page, slide, slides, image, images, slide show,  video slider, free video slider, custom video slider, video slideshow, rotator, free video slideshow, youtube slider, vimeo  slider, vimeo  slideshow, youtube slideshow, HTML5 slider, recent post slider, 3D slider, slider shortcode, picture slider, responsive image slider, revolution slider, wordpress picture slider, touch slider, post slider, fullscreen slider, picture, pictures,swipe slider, swipe, mobile slider, fast slide, fast slider, wordpress responsive slider, page slider, css3 slider, plugins, free plugin, free slider, best slider, jquery, fullwidth slider, post slider, slider image, links,
 Requires at least: 3.0.1
-Tested up to: 4.4
-Stable tag: 3.0.4
+Tested up to: 4.4.1
+Stable tag: 3.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,14 @@ Upgrade to [WordPress Slider Pro](http://huge-it.com/slider) to add some feature
 * Ability to change font size of Slider Title and Description on image
 * Full Design Management 
 * Support upon request in 24 hours
+
+### Unlimited Amount Of Images
+
+Create a slider with countless number of images make it look rich, add countless number of sliders as well. All these are possible with Huge-IT Slider.
+
+### Custom Options For Each Slider
+
+Each slider can be adjusted using Current Options, which includes the speed, effects, and many other interesting options.Separately from each other, sliders can have their own customization.
 
 > #### Image Slider Demos 
 >
@@ -147,6 +155,9 @@ That is standard loading process. Our slider is made so it waits until all your 
 ### If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/slider/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 3.0.5 =
+*  Front end bug fixed.
 
 = 3.0.4 =
 *  Mirror bug fixed.

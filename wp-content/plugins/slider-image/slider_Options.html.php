@@ -727,7 +727,7 @@ function      html_showStyles($param_values, $op_type)
 						<input name="params[slider_thumb_passive_color]" type="text" class="color" id="slider_thumb_passive_color" value="#<?php echo $param_values['slider_thumb_passive_color']; ?>" size="10">
 				</div>
 				<div>
-					<label for="slider_thumb_passive_color_trans">Title Background Transparency
+					<label for="slider_thumb_passive_color_trans">Passive Thumbnail Overlay Transparency
                                             <div class="help">?
                                                 <div class="help-block">
                                                     <span class="pnt"></span>
