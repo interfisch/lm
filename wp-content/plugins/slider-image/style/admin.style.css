@@ -207,23 +207,25 @@
 
 #images-list .image-container {
 	position: relative;
-    width: 24%;
-    padding: 0px 0.5% 0px 0.5%;
-    float: left;/
+        width: 24%;
+        padding: 0px 0.5% 0px 0.5%;
+        float: left;
+        max-width:220px;
 }
 
 
 #images-list .image-container  img {
 	width:100%;
+        height:auto;
 }
 
 
 #images-list  .play-icon {
-	    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%	
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%	
 }
 
 #images-list  .play-icon.youtube {background:url(../images/play.youtube.png) center center no-repeat;}

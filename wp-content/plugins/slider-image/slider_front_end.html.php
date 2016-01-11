@@ -1002,7 +1002,7 @@ jQuery(function(){
 		<div class="huge_it_slideshow_image_wrap1_<?php echo $sliderID; ?> nodisplay">
 	<?php } else { ?>
 		<div id="huge_it_loading_image_<?php echo $sliderID; ?>" class="nodisplay"> <img src="<?php echo plugins_url('', __FILE__).'/Front_images/loading/loading'.$paramssld["loading_icon_type"].'.gif'; ?>"  alt="" width="100" height="100" style=" margin: 0px auto;" /> </div>
-		<div class="huge_it_slideshow_image_wrap1_<?php echo $sliderID; ?>"class="display">
+		<div class="huge_it_slideshow_image_wrap1_<?php echo $sliderID; ?>" class="display">
 	<?php } ?>
       <?php
       $current_pos = 0;
