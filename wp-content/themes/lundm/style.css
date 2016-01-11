@@ -130,7 +130,7 @@ div#page{
 div#content{
 	width: 495px;
 	float: left;
-    margin-left:    12px;
+    margin-left:    27px;
     margin-right:   11px;
 	font-size: 12px;
 	margin-top: 30px;/*newsbereich hat den gleichen abstand*/
@@ -139,7 +139,7 @@ div#content{
 
 div#content,
 div#content.fullpage{
-	width: 665px;
+	width: 650px;
 }
 
 div#sidenav:empty ~ div#content,
@@ -2154,23 +2154,27 @@ div#sidenav ul.menu li.current_page_item ul.sub-menu{
     height:             auto;
     width:              178px;
     background-color:   #9a9a9b;
-    margin-top:         -5px;
     margin-left:        3px;
-    padding-top:        5px;
-    padding-bottom:     5px;
+    padding-top:        3px;
+}
+
+div#sidenav ul.menu li.current-page-ancestor ul.sub-menu ul.sub-menu,
+div#sidenav ul.menu li.current_page_ancestor ul.sub-menu ul.sub-menu,
+div#sidenav ul.menu li.current_page_item ul.sub-menu ul.sub-menu{
+    background-color:   #C2C2C6;
 }
 
 div#sidenav ul.menu li ul.sub-menu li{
     background-image:   none!important;
     width:              190px;   
-    padding-left:       5px; 
 }
 div#sidenav ul.menu li ul.sub-menu li a{
     font-size:      12px;
     width:          155px;
     height:         auto;
     left:           0px;
-    line-height:    12px;  
+    line-height:    12px;
+    margin-bottom: 5px;
     background-color:   transparent;
     color:              #fff;   
     box-shadow: none;
@@ -3184,10 +3188,499 @@ div.wpcf7-response-output.wpcf7-display-none.wpcf7-mail-sent-ok::before {
 }
 
 
+#virtual-lundm {
+    /*float: left;*/
+    clear: both;
+    position: relative;
+    width: 958px;
+    /* height: 400px; */
+    padding-bottom: 330px;
+    background: url(images/start/gebaeude.png) no-repeat left bottom;
+    margin-right: -88px;
+}
+
+#virtual-lundm .tooltip .columns p {
+    font-size: 83%;
+    line-height: 1.5em;
+    /*margin-bottom: 0px;*/
+}
+.tooltip .right a.more-link {
+    bottom: 0;
+    right: 0;
+    width: 160px;
+    height: 21px;
+    text-align: right;
+    text-decoration: none;
+    background: url(images/start/sprite.png) repeat-x left -123px;
+}
+.tooltip .right a.more-link span {
+    padding: 4px 7px 0px 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 85%;
+    color: #ffffff;
+    display: block;
+}
+.tooltip .columns .left {
+    float: left;
+    width: 215px;
+    max-width: 195px;
+    padding: 15px 10px 0px 20px;
+}
+.tooltip .columns .right {
+    float: right;
+    width: 165px;
+    /*min-height: 21px;*/
+    position:  relative;
+    background: no-repeat right top;
+}
+.tooltip .columns .right,
+.tooltip .columns .left {
+    /*width: 44%;*/
+    height: 100%;
+}
+.tooltip-arrow {
+    /* float:left; */
+    clear: both;
+    background: url(images/start/tooltip-pfeil.png) no-repeat 50% bottom;
+    height: 24px;
+    width: 100%;
+    position: absolute;
+    bottom: -17px;
+    left: 0px;
+    /* margin-bottom: -17px; */
+    z-index: 99;
+}
+/* GALERIE */
+.tooltip .right a {
+    float: right;
+}
+.tooltip .right ul {
+    margin: 0px;
+    float: right;
+    width: 100%;
+}
+.tooltip .right ul li {
+    float: right;
+    display: inline;
+    margin: 2px 0px 0px 5px;
+}
+
+/*
+*
+* Areas
+*
+*/
+
+/* Dynamisch Gebäude*/
+
+#virtual-lundm {
+    /*float: left;*/
+    clear: both;
+    position: relative;
+    width: 958px;
+    /* height: 400px; */
+    padding-bottom: 330px;
+    background: url(images/start/gebaeude.png) no-repeat left bottom;
+    margin-right: -88px;
+}
+
+#virtual-lundm p {
+    max-width: 900px;
+}
+
+.tooltip {
+    width: 390px;
+    position: absolute;
+    border: 5px solid #9f9f9f;
+    background: #5b5b5b;
+    -moz-border-radius: 18px;
+    -webkit-border-radius: 18px;
+    border-radius: 18px;
+    -moz-box-shadow: 0 3px 7px #000;
+    -webkit-box-shadow: 0 3px 7px #000;
+    box-shadow: 0 3px 7px #000;
+    display: none;
+    z-index: 99;
+    overflow: visible;
+}
+.tooltip .columns {
+    width: 100%;
+    overflow: hidden;
+    color: #ffffff;
+    float: left;
+    height: 100%;
+    -moz-border-radius: 13px 13px 13px 13px;
+    -webkit-border-radius: 13px 13px 13px 13px;
+    border-radius: 13px 13px 13px 13px;
+    overflow: hidden;
+}
+.tooltip .columns h3 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+#virtual-lundm .tooltip .columns p {
+    font-size: 83%;
+    line-height: 1.5em;
+    /*margin-bottom: 0px;*/
+}
+.tooltip .right a.more-link {
+    bottom: 0;
+    right: 0;
+    width: 160px;
+    height: 21px;
+    text-align: right;
+    text-decoration: none;
+    background: url(images/start/sprite.png) repeat-x left -123px;
+}
+.tooltip .right a.more-link span {
+    padding: 4px 7px 0px 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 85%;
+    color: #ffffff;
+    display: block;
+}
+.tooltip .columns .left {
+    float: left;
+    width: 215px;
+    max-width: 195px;
+    padding: 15px 10px 0px 20px;
+}
+.tooltip .columns .right {
+    float: right;
+    width: 165px;
+    /*min-height: 21px;*/
+    position:  relative;
+    background: no-repeat right top;
+}
+.tooltip .columns .right,
+.tooltip .columns .left {
+    /*width: 44%;*/
+    height: 100%;
+}
+.tooltip-arrow {
+    /* float:left; */
+    clear: both;
+    background: url(images/start/tooltip-pfeil.png) no-repeat 50% bottom;
+    height: 24px;
+    width: 100%;
+    position: absolute;
+    bottom: -17px;
+    left: 0px;
+    /* margin-bottom: -17px; */
+    z-index: 99;
+}
+/* GALERIE */
+.tooltip .right a {
+    float: right;
+}
+.tooltip .right ul {
+    margin: 0px;
+    float: right;
+    width: 100%;
+}
+.tooltip .right ul li {
+    float: right;
+    display: inline;
+    margin: 2px 0px 0px 5px;
+}
+
+/*
+*
+* Areas
+*
+*/
+
+#virtual-lundm .areas li .area-link {
+    background: url(images/start/virtual_lundm_areas3.png) no-repeat left top;
+    position: absolute;
+    display: block;
+    text-indent: -9999px;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    -khtml-opacity: 0;
+    opacity: 0;
+    z-index: 9;
+    cursor: help;
+}
+#virtual-lundm .areas li div.tip-content {
+    display: none;
+}
+
+#virtual-lundm .areas li#virtual-lundm-01 .area-link {
+    width: 52px;
+    height: 79px;
+    background-position: 0px 0px;
+    left: 615px;
+    /* top: 203px; */
+    bottom: 118px;
+    z-index: 9;
+}
+#virtual-lundm .areas li#virtual-lundm-02 .area-link {
+    width: 251px;
+    height: 97px;
+    background-position: 0px -79px;
+    left: 367px;
+    /* top: 248px; */
+    bottom: 55px;
+    z-index: 7;
+}
+#virtual-lundm .areas li#virtual-lundm-03 .area-link {
+    width: 115px;
+    height: 63px;
+    background-position: 0px -176px;
+    left: 663px;
+    /* top: 210px; */
+    bottom: 127px;
+    z-index: 10;
+}
+#virtual-lundm .areas li#virtual-lundm-04 .area-link {
+    width: 299px;
+    height: 110px;
+    background-position: 0px -239px;
+    left: 367px;
+    /* top: 197px; */
+    bottom: 93px;
+    z-index: 8;
+}
+#virtual-lundm .areas li#virtual-lundm-05 .area-link {
+    width: 115px;
+    height: 57px;
+    background-position: 0px -349px;
+    left: 665px;
+    /* top: 185px; */
+    bottom: 158px;
+    z-index: 11;
+}
+#virtual-lundm .areas li#virtual-lundm-06 .area-link {
+    width: 342px;
+    height: 98px;
+    background-position: 0px -406px;
+    left: 441px;
+    /* top: 119px; */
+    bottom: 183px;
+}
+#virtual-lundm .areas li#virtual-lundm-07 .area-link {
+    height: 67px;
+    width: 71px;
+    background-position: 0px -504px;
+    left: 290px;
+    /* top: 166px; */
+    bottom: 132px;
+    z-index: 8;
+}
+#virtual-lundm .areas li#virtual-lundm-08 .area-link {
+    width: 116px;
+    height: 96px;
+    background-position: 0px -571px;
+    left: 224px;
+    /* top: 145px; */
+    bottom: 138px;
+    z-index: 7;
+}
+#virtual-lundm .areas li#virtual-lundm-09 .area-link {
+    width: 75px;
+    height: 73px;
+    background-position: 0px -667px;
+    left: 195px;
+    /* top: 97px; */
+    bottom: 177px;
+    z-index: 6;
+}
+#virtual-lundm .areas li#virtual-lundm-10 .area-link {
+    width: 306px;
+    height: 133px;
+    background-position: 0px -740px;
+    left: 94px;
+    /* top: 73px; */
+    bottom: 193px;
+    z-index: 5;
+}
+#virtual-lundm .areas li#virtual-lundm-11 .area-link {
+    width: 323px;
+    height: 87px;
+    background-position: 0px -873px;
+    left: 236px;
+    /* top: 105px; */
+    bottom: 208px;
+}
+#virtual-lundm .areas li#virtual-lundm-12 .area-link {
+    width: 117px;
+    height: 89px;
+    background-position: 0px -960px;
+    left: 323px;
+    /* top: 172px; */
+    bottom: 139px;
+}
+#virtual-lundm .areas li#virtual-lundm-13 .area-link {
+    width: 116px;
+    height: 42px;
+    background-position: 0px -1049px;
+    left: 395px;
+    /* top: 148px; */
+    bottom: 210px;
+}
 
 
 
+/* shadow box tooltip für Gebäude*/
 
+/* typography */
+#sb-title-inner, #sb-info-inner, #sb-loading-inner, div.sb-message {
+    font-family: "HelveticaNeue-Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 200;
+    color: #fff;
+}
 
+/* container, overlay, & wrapper */
+#sb-container {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    text-align: left;
+    visibility: hidden;
+    display: none;
+}
+#sb-overlay {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+#sb-wrapper {
+    position: absolute;
+    visibility: hidden;
+    width: 100px; /* explicit width helps offset children calculate their width */
+}
+#sb-wrapper-inner {
+    position: relative;
+    border: 1px solid #303030;
+    overflow: hidden;
+    height: 100px; /* explicit height helps offset children calculate their height */
+}
 
+/* body */
+#sb-body {
+    position: relative;
+    height: 100%;
+}
+#sb-body-inner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+#sb-player.html {
+    height: 100%;
+    overflow: auto; /* make html content scrollable */
+}
+#sb-body img {
+    border: none;
+}
 
+/* loading */
+#sb-loading {
+    position: relative;
+    height: 100%;
+}
+#sb-loading-inner {
+    position: absolute;
+    font-size: 14px;
+    line-height: 24px;
+    height: 24px;
+    top: 50%;
+    margin-top: -12px;
+    width: 100%;
+    text-align: center;
+}
+#sb-loading-inner span {
+    background: url(images/shadowbox/loading.gif) no-repeat;
+    padding-left: 34px;
+    display: inline-block;
+}
+#sb-body, #sb-loading {
+    background-color: #060606; /* should match loading image background color */
+}
+
+/* title & info */
+#sb-title, #sb-info {
+    position: relative;
+    margin: 0; /* these must have no vertical margin or padding */
+    padding: 0;
+    overflow: hidden;
+}
+#sb-title, #sb-title-inner {
+    height: 26px;
+    line-height: 26px;
+}
+#sb-title-inner {
+    font-size: 16px;
+}
+#sb-info, #sb-info-inner {
+    height: 20px;
+    line-height: 20px;
+}
+#sb-info-inner {
+    font-size: 12px;
+}
+
+/* nav */
+#sb-nav {
+    float: right;
+    height: 16px;
+    padding: 2px 0;
+    width: 45%;
+}
+#sb-nav a {
+    display: block;
+    float: right;
+    height: 16px;
+    width: 16px;
+    margin-left: 3px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+#sb-nav-close {
+    background-image: url(images/shadowbox/close.png);
+}
+#sb-nav-next {
+    background-image: url(images/shadowbox/next.png);
+}
+#sb-nav-previous {
+    background-image: url(images/shadowbox/previous.png);
+}
+#sb-nav-play {
+    background-image: url(images/shadowbox/play.png);
+}
+#sb-nav-pause {
+    background-image: url(images/shadowbox/pause.png);
+}
+
+/* counter */
+#sb-counter {
+    float: left;
+    width: 45%;
+}
+#sb-counter a {
+    padding: 0 4px 0 0;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+}
+#sb-counter a.sb-counter-current {
+    text-decoration: underline;
+}
+
+/* messages */
+div.sb-message {
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+}
+div.sb-message a:link, div.sb-message a:visited {
+    color: #fff;
+    text-decoration: underline;
+}

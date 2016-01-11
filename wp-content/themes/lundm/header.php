@@ -96,6 +96,48 @@ echo "<script type='text/css'>
 	wp_head();
 ?>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/main.js"></script>
+
+<script src="<?php echo get_template_directory_uri(); ?>/js/jquery.virtuallundm.js" type="text/javascript"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/shadowbox.js"></script>
+<script type="text/javascript">
+	/* <![CDATA[ */			function shadowBoxInit() {
+		Shadowbox.init({
+			animate: 1,
+			animateFade: 1,
+			animSequence: 'sync',
+			autoplayMovies: 1,
+			continuous: 0,
+			counterLimit: 10,
+			counterType: 'default',
+			displayCounter: 1,
+			displayNav: 1,
+			enableKeys: 1,
+			fadeDuration: 0.35,
+			flashParams: {bgcolor:"#000000",allowfullscreen:"true"},
+			flashVars: {},
+			flashVersion: '9.0.0',
+			handleOversize: 'resize',
+			handleUnsupported: 'link',
+			initialHeight: 160,
+			initialWidth: 320,
+			modal: 0,
+			onChange: function() {},
+			onClose: function() {},
+			onFinish: function() {},
+			onOpen: function() {},
+			overlayColor: '#000000',
+			overlayOpacity: 0.5,
+			resizeDuration: 0.35,
+			showOverlay: 1,
+			showMovieControls: 1,
+			skipSetup: 0,
+			slideshowDelay: 0,
+			viewportPadding: 20,
+			preserveAspectWhileResizing: 1
+		});
+	}
+	Shadowbox.path = 'http://www.lundm.de/typo3temp/pmkshadowbox/jquery-de-DE-flv-html-iframe-img-qt-swf-wmp-sizzle/';shadowBoxInit();;/* ]]> */
+</script>
 </head>
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed">

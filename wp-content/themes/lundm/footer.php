@@ -12,6 +12,7 @@
 
 	</div><!-- #main -->
 
+	<?php  if (strpos($_SERVER['REQUEST_URI'], "unternehmenszentrale-flintbek") !== false){  include('gebaeude.php');  }?>
 	<div id="footer" role="contentinfo" class="cntFade">
 		<span class="background"></span>
 		<div class="topLeft">
