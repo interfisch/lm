@@ -4,7 +4,7 @@ Donate link: http://swiftylife.com/plugins/donate/
 Tags: Swifty, page, pages, tree, menu, manage, hierarchy, structure
 Requires at least: 3.8
 Tested up to: 4.4
-Stable tag: 1.4.8
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,15 @@ Try to describe the actions that lead up to the point where something is not wor
 Try it - it's free!
 
 == Changelog ==
+
+= 1.5.2 =
+ * Small bugfix for WMPL.
+
+= 1.5.0 =
+ * The maximum width of the view / tree can now be set in the settings screen, so the buttons can now be closer to the titles.
+ * Added a WPML language switcher.
+ * Fixed a problem with activate after install.
+ * Added an option for showing a main menu's title also as the first child in it's dropdown menu (only in Swifty mode; not in stand-alone plugin).
 
 = 1.4.8 =
  * Prevent Ninja Forms messages from showing on top of Swifty Page Manager.

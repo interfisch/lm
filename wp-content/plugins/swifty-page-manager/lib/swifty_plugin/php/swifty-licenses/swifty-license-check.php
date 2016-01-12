@@ -23,7 +23,7 @@ class SwiftyLicenseCheck
     public $plugin_name;     // Swifty Content Creator Visual Pack
     public $plugin_key_name; // 'swifty_scc'
     public $product_id;      // 'SCC_ALPHA';
-    public $plugin_version;  // '1.4.8';
+    public $plugin_version;  // '1.5.2';
 
     protected static $_instance = null;
 

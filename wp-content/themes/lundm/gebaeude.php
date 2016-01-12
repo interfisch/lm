@@ -1,7 +1,4 @@
 <div id="virtual-lundm">
-    <h2>Erkunden Sie uns:</h2>
-    <p>Ein Haus, dass alle unsere Stärken unter einem Dach vereint, darauf sind wir sehr stolz. Neben einer ansprechenden Architektur und der Funktionalität ist das Gebäude unter dem Aspekt der Energieeffizienz und der Nachhaltigkeit errichtet worden. Durch den Einsatz von Geothermie mit diversen Erdsonden wird das Gebäude autark mit Wärme und Kälte versorgt. </p>
-    <p>Erfahren Sie mehr über uns indem Sie mit dem Cursor über das Bild des Gebäudes gehen, dabei öffnen sich sämtliche Betriebsbereiche...</p>
     <ul class="areas"><li id="virtual-lundm-01">
             <a href="http://www.lundm.de/unternehmen.html" class="area-link">Unternehmen</a>
             <div class="tooltip">
