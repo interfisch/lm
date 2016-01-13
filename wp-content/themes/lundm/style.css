@@ -3684,3 +3684,37 @@ div.sb-message a:link, div.sb-message a:visited {
     color: #fff;
     text-decoration: underline;
 }
+
+
+/* Sprites Logo */
+.icon-Kyocera {
+    background-image: url(images/lundm-sprite.png);
+    background-position: 0px 0px;
+    width: 280px;
+    height: 81px;
+}
+.icon-canon {
+    background-image: url(images/lundm-sprite.png);
+    background-position: 0px -81px;
+    width: 280px;
+    height: 81px;
+}
+.icon-ricoh {
+    background-image: url(images/lundm-sprite.png);
+    background-position: 0px -162px;
+    width: 280px;
+    height: 81px;
+}
+.icon-riso {
+    background-image: url(images/lundm-sprite.png);
+    background-position: -280px 0px;
+    width: 280px;
+    height: 81px;
+}
+.icon-xerox {
+    background-image: url(images/lundm-sprite.png);
+    background-position: -280px -81px;
+    width: 280px;
+    height: 81px;
+}
+
