@@ -212,3 +212,29 @@
 <script type="text/javascript">
     jQuery('#virtual-lundm').virtuallundm();
 </script>
+<br/>
+<div class="extern-text">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2331.1016745437237!2d10.048461951963002!3d54.2490859800808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b253c6d601ce6f%3A0xf393242b878007b0!2sL+und+M+B%C3%BCroinformationssysteme+GmbH!5e0!3m2!1sde!2sde!4v1452780486947" width="900" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<h2>Anfahrt</h2>
+<strong>Aus Richtung Hamburg</strong>
+<ul>
+    <li>Verlassen Sie die A7 an der Ausfahrt Flensburg/ Kiel/ Husum/ A23/ B4/ B5</li>
+    <li>Folgen Sie der Autobahn bis zur Ausfahrt 12 Dreieck Bordesholm und fädeln Sie sich zur A215 in Richtung Kiel/ Blumenthal ein</li>
+    <li>Nehmen Sie die Ausfahrt 4 Blumenthal Richtung Flintbek/ Molfsee</li>
+    <li>Nach 40 Metern biegen Sie links ab auf die L298</li>
+    <li>Dann links auf die L318 in Richtung Flintbek/ Molfsee</li>
+    <li>An der 2. Kreuzung links in den Konrad-Zuse-Ring abbiegen</li>
+    <li>Nach 30 Metern rechts abbiegen</li>
+    <li>Folgen Sie der Straße bis zum L und M Gebäude</li>
+</ul>
+<strong>Aus Richtung Kiel</strong>
+<ul>
+    <li>Nehmen Sie die Autobahn A215 Richtung Hamburg</li>
+    <li>Folgen Sie der Autobahn bis zur Ausfahrt Dreick Bordesholm</li>
+    <li>Rechts abbiegen auf die L298 (Schilder nach Neumünster/ Bordesholm/ Flintbek)</li>
+    <li>Nach 40 Metern biegen Sie links ab auf die L318</li>
+    <li>An der 2. Kreuzung links in den Konrad-Zuse-Ring abbiegen</li>
+    <li>Nach 30 Metern rechts abbiegen</li>
+    <li>Folgen Sie der Straße bis zum L und M Gebäude</li>
+</ul>
+</div>

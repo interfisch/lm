@@ -3718,3 +3718,65 @@ div.sb-message a:link, div.sb-message a:visited {
     height: 81px;
 }
 
+.extern-text{
+    font-size: 12px;
+}
+
+.extern-text h2{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.extern-text ul{
+    margin-bottom: 10px;
+    padding-left: 20px;
+}
+
+.extern-text ul li{
+    list-style-type: disc;
+    line-height: 20px;
+}
+
+/* FCE LOGO LISTE */
+#content .logos {
+    float: left;
+    width: 100%;
+    margin: 20px 0px 20px 0px;
+    padding: 0px;
+}
+#content .logos li {
+    background: #EEEEEE;
+    height: 60px;
+    margin: 0 5px 5px 0 !important;
+    padding: 0px;
+    width: 155px;
+    display: inline;
+    float: left;
+    overflow: hidden;
+}
+#content .logos li a {
+    float: left;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -99999px;
+    background: no-repeat center -50px;
+}
+#content .logos li a:active,
+#content .logos li a:hover,
+#content .logos li a:focus {
+    background: no-repeat center 10px;
+}
+
+#content .logos-partner li {
+    width: 225px;
+    height: 80px;
+}
+#content .logos-partner li a {
+    background: no-repeat 50% -80px;
+}
+#content .logos-partner li a:active,
+#content .logos-partner li a:hover,
+#content .logos-partner li a:focus {
+    background-position: 50% top;
+}
