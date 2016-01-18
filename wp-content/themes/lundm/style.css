@@ -3803,3 +3803,10 @@ div.sb-message a:link, div.sb-message a:visited {
     margin-top: 65px;
     top:0;
 }
+
+#content .workflow li{
+    list-style: outside none none;
+    margin: 0px 0px 8px !important;
+    background: transparent url("images/listen-pfeil.gif") no-repeat scroll left 4px;
+    padding-left: 15px !important;
+}
