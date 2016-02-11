@@ -15,7 +15,7 @@ function front_end_slider($images, $paramssld, $slider)
 	$slidechangespeed=$slider[0]->param;
 	$sliderloadingicon=$slider[0]->sl_loading_icon;
 	$sliderthumbslider=$slider[0]->show_thumb;
-
+	$slidervideoautoplay=$slider[0]->video_autoplay;
 	$slideshow_title_position = explode('-', trim($paramssld['slider_title_position']));
 	$slideshow_description_position = explode('-', trim($paramssld['slider_description_position']));
  }
@@ -42,168 +42,191 @@ $GLOBALS['changespeed']=$slider[0]->param;
 
 <?php if ($hasvimeo==true){?>
 <script src="<?php echo plugins_url( 'js/vimeo.lib.js' , __FILE__ ) ?>"></script>
-<script src="https://f.vimeocdn.com/js/froogaloop2.min.js "></script>
-<script>
-jQuery(function(){
-	var vimeoPlayer = document.querySelector('iframe');
+<!--<script src="https://f.vimeocdn.com/js/froogaloop2.min.js "></script>-->
 
-	var volumes = [];
-	var colors = [];
-	var i=0;		
-	<?php
-	$i=0;
-	//$vimeoparams=array_reverse($images);
-	foreach ($images as $key => $image_row) {	if($image_row->sl_type=="video" and strpos($image_row->image_url,'vimeo') !== false){?>
-		volumes[<?php echo $i; ?>] = '<?php echo intval($image_row->description)/100; ?>';
-		colors[<?php echo $i; ?>] = '<?php echo $image_row->link_target; ?>';
-	<?php $i++;}	} ?>
-		
-	jQuery('iframe').each(function(){
-				Froogaloop(this).addEvent('ready', ready);
-	});
-	jQuery(".sidedock,.controls").remove();
-	function ready(player_id) {
-	
-		froogaloop = $f(player_id);
-	
-		function setupEventListeners() {
-			function setVideoVolume(player_id,value) {
-				Froogaloop(player_id).api('setVolume',value);
-			}	
-			function setVideoColor(player_id,value) {
-				Froogaloop(player_id).api('setColor',value);
-			}			
-			function onPlay() {
-				froogaloop.addEvent('play',
-				function(){
-					huge_video_playing['video_is_playing_'+<?php echo $sliderID; ?>]=true;
-				});
-			}
-			function onPause() {
-				froogaloop.addEvent('pause',
-				function(){
-					huge_video_playing['video_is_playing_'+<?php echo $sliderID; ?>]=false;
-				});
-			}					
-			function stopVimeoVideo(player){
-				Froogaloop(player).api('pause');
-			}
-			setVideoVolume(player_id,volumes[i]);
-			setVideoColor(player_id,colors[i]);
-			i++;			
-			
-			onPlay();
-			onPause();
-			jQuery('#huge_it_slideshow_left_<?php echo $sliderID; ?>, #huge_it_slideshow_right_<?php echo $sliderID; ?>,.huge_it_slideshow_dots_<?php echo $sliderID; ?>').click(function(){
-				stopVimeoVideo(player_id);
-			});
-		}
-		setupEventListeners();
-	}
-});		
-</script>
 <?php } ?>
 
 <?php if ($hasyoutube==true){?>
 
 <script src="<?php echo plugins_url( 'js/youtube.lib.js' , __FILE__ ) ?>"></script>
+<?php }?>
+<!--  #######ADD YOUTUBE IFRAME TWICE######## -->
 <script> 
-  <?php
-  if(!function_exists('get_youtube_id_from_url')){
-        function get_youtube_id_from_url($url){
-		if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
-			return $match[1];
+  <?php 
+  if(!function_exists('get_youtube_id_from_url')) {
+	  function get_youtube_id_from_url($url){
+			if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
+				return $match[1];
+			}
 		}
-	}
   }
 			
 	$i=0;
-	 foreach ($images as $key => $image_row) {
-		if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtu') !== false){	
-  ?> 
-		var player_<?php echo $image_row->id; ?>;
+	foreach ($images as $key => $image_row) {?>
+	 <?php
+		if (strpos($image_row->image_url,'vimeo') !== false){ ?>
+			HUGEIT_VIMEOS['iframe'+'<?php echo $image_row->id; ?>'] = {
+				id:'<?php echo $image_row->id; ?>',
+				parentId:'<?php echo $sliderID; ?>',
+				//videoId:'<?php echo get_youtube_id_from_url($image_row->image_url); ?>',
+				volume:parseFloat('<?php echo $image_row->description; ?>')/100,
+				color:'<?php echo $image_row->link_target;?>',
+				state:'',
+				autoplay:'<?php echo ($slidervideoautoplay=='off')?'':$slidervideoautoplay ;?>'
+			};	
+		<?php 
+		} else if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtu') !== false){	
+			?> 		
+				HUGEIT_YT_IFRAMES['iframe'+'<?php echo $image_row->id; ?>'] = {
+				id:'<?php echo $image_row->id; ?>',
+				parentId:'<?php echo $sliderID; ?>',
+				videoId:'<?php echo get_youtube_id_from_url($image_row->image_url); ?>',
+				volume:'<?php echo $image_row->description; ?>',
+				controls:'<?php echo $image_row->sl_url; ?>',
+				showinfo:'<?php echo $image_row->link_target;?>',
+				quality:'<?php echo $image_row->name;?>',state:'',
+				autoplay:'<?php echo ($slidervideoautoplay=='off')?'':$slidervideoautoplay ;?>'
+			};
+
+	
 <?php
-		}else if (strpos($image_row->image_url,'vimeo') !== false){ ?>
-				
-<?php
-		}else{continue;}
+		} else{continue;}
 		$i++;
 	}
 ?>
-		huge_video_playing['video_is_playing_'+<?php echo $sliderID; ?>]=false;
-		function onYouTubeIframeAPIReady() {
-			<?php
-			foreach ($images as $key => $image_row) {?>
-							
-				<?php if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtube') !== false){
-			?> 
-				player_<?php echo $image_row->id; ?> = new YT.Player('video_id_<?php echo $sliderID; ?>_<?php echo $key;?>', {
-				  height: '<?php echo $sliderheight; ?>',
-				  width: '<?php echo $sliderwidth; ?>',
-				  videoId: '<?php echo get_youtube_id_from_url($image_row->image_url); ?>',
-				   playerVars: {
-					'controls': <?php if ($images[$key]->sl_url=="on"){ echo 1;}else{echo 0;} ?>,           
-					'showinfo': <?php if ($images[$key]->link_target=="on"){ echo 1;}else{echo 0;} ?>,
-					'rel':0
-				  },
-				  events: {
-					'onReady': onPlayerReady_<?php echo $image_row->id; ?>,
-					'onStateChange': onPlayerStateChange_<?php echo $image_row->id; ?>,
-					'loop':1
-				  }
-				});
-			<?php
-				}else{continue;}
-			}
-			?>
-		}
-		
-		
-<?php		
-	foreach ($images as $key => $image_row) {
-		if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtu') !== false){
-?> 
-		  function onPlayerReady_<?php echo $image_row->id; ?>(event) {	
-			 player_<?php echo $image_row->id; ?>.setVolume(<?php echo $images[$key]->description; ?>);
-		  }
-		  
-		  function onPlayerStateChange_<?php echo $image_row->id; ?>(event) {
-			//(event.data);
-			
-   //jQuery("iframe[class^='huge_it_video_frame_']")[myid].src;
 
-			if (event.data == YT.PlayerState.PLAYING) {
-				event.target.setPlaybackQuality('<?php echo $images[$key]->name; ?>');
-				huge_video_playing['video_is_playing_'+<?php echo $sliderID; ?>]=true;
-				
+	var YTdeferred = jQuery.Deferred();
+	window.onYouTubeIframeAPIReady = function() {
+		//resolve when youtube callback is called passing YT as a parameter
+		YTdeferred.resolve(window.YT);
+
+	};
+	YTdeferred.done(function(YT) {
+
+		jQuery('.huge-it-iframe').each(function(){
+			
+			var el_id = jQuery(this).attr('data-element-id');
+			var volume = HUGEIT_YT_IFRAMES['iframe'+el_id]['volume'];
+			
+			window['onPlayerReady'+el_id] = function(event) {
+				window['player_'+el_id]['setVolume'](volume);
 			}
-			else if(event.data == YT.PlayerState.PAUSED){
-				huge_video_playing['video_is_playing_'+<?php echo $sliderID; ?>]=false;
-				
-			}
-		  }
-<?php 
-	    }else{continue;}
+		});		
+
+		jQuery('.huge-it-iframe').each(function(){
 		
-	}
-?>
-	function stopYoutubeVideo() {
-		<?php 
-		$i=0;
-		foreach ($images as $key => $image_row) {
-			if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtube') !== false){	
-		?>
-			player_<?php echo $image_row->id; ?>.pauseVideo();
-		<?php
-			}else{continue;}
-				$i++;
+			var id = jQuery(this).attr('id');
+			var el_id = jQuery(this).attr('data-element-id');
+			var controls = HUGEIT_YT_IFRAMES['iframe'+el_id]['controls'];
+			var showinfo = HUGEIT_YT_IFRAMES['iframe'+el_id]['showinfo'];
+			var url = HUGEIT_YT_IFRAMES['iframe'+el_id]['videoId'];
+			controls||(controls = 0);
+			showinfo||(showinfo = 0);
+			
+			window['player_'+el_id] = new YT.Player(id, {
+				height: '<?php echo $sliderheight; ?>',
+				width: '<?php echo $sliderwidth; ?>',
+				videoId: url,
+				playerVars: {
+					'controls': controls,// <?php if ($images[$key]->sl_url=="on"){ echo 1;}else{echo 0;} ?>,           
+					'showinfo': showinfo,//<?php if ($images[$key]->link_target=="on"){ echo 1;}else{echo 0;} ?>,
+					'rel':0
+				},
+				events: {
+					'onError': window['onPlayerError'+el_id],
+					'onReady': window['onPlayerReady'+el_id],
+					'onStateChange': window['onPlayerStateChange'+el_id],
+					'loop':1
+				}
+			});			
+		})
+	});
+	
+	jQuery(function(){
+
+		jQuery('.huge-it-iframe').each(function(){
+			
+			var el_id = jQuery(this).attr('data-element-id');
+			var quality = HUGEIT_YT_IFRAMES['iframe'+el_id]['quality'];	
+		
+			window['onPlayerStateChange'+el_id] = function(event) {
+		
+				if (event.data == YT.PlayerState.PLAYING) {
+					HUGEIT_YT_IFRAMES['iframe'+el_id]['state']='played';
+					event.target.setPlaybackQuality(quality);
+				}
 			}
-		?>
+		});
+	
+	});
+	function stopYoutubeVideo(currentVideo,nextVideo) {
+
+		if(currentVideo) {
+			(HUGEIT_YT_IFRAMES['iframe'+currentVideo]['state'])?currentVideo&&(window['player_'+currentVideo]['pauseVideo']()):currentVideo&&(window['player_'+currentVideo]['stopVideo']());
+		}
+		nextVideo&&HUGEIT_YT_IFRAMES['iframe'+nextVideo]['autoplay']&&(window['player_'+nextVideo]['playVideo']());
+	}	
+	
+	function stopVimeoVideo(currentVideo,nextVideo){
+		jQuery(currentVideo).vimeo('pause');
+		jQuery(nextVideo).vimeo('play');
 	}
+/*** <Vimeo> initialize And youtube autopay ***/ 
+
+	jQuery( window ).load(function() {	
+
+		(function VimeoOptionsReady(){ //calling funtion once
+				jQuery('.huge-it-iframe-vimeo').each(function(){
+					var el_id = jQuery(this).attr('data-element-id');
+					jQuery(this).vimeo('setColor',HUGEIT_VIMEOS['iframe'+el_id]['color']);
+					jQuery(this).vimeo('setVolume',HUGEIT_VIMEOS['iframe'+el_id]['volume']);
+				})
+		}());
+		
+		if('<?php echo $slidervideoautoplay;?>' == 'on') {
+							
+
+			if(jQuery('.huge-it-iframe-vimeo.autoplay').length) {
+								
+				(function AutoplayVimeo() {
+					var setplayVideo = setInterval(hugeitframe, 100);
+					function hugeitframe() {
+						var vimeo1 = jQuery('.huge_it_slider_<?php echo $sliderID; ?> li').first().find('.autoplay')
+							if(vimeo1.length) {
+								vimeo1.vimeo('play');
+								clearInterval(setplayVideo);
+							}
+					};	
+				}());
+			};
+			
+			if(jQuery('.huge-it-iframe.autoplay').length) {
+									
+				(function AutoplayYoutube() {
+					var setplayVideo = setInterval(hugeitframe, 100);
+					function hugeitframe() {
+						jQuery('.huge-it-iframe.autoplay').each(function(){
+							
+						var el_id = jQuery(this).attr('data-element-id');
+						
+						if(window['player_'+el_id]) {
+							window['player_'+el_id]['playVideo']();
+							clearInterval(setplayVideo);
+						}
+						});	
+					}
+				}());
+			};		
+
+
+		}
+	});
+
+/*** </Vimeo> initialize***/ 
 
 </script>
-<?php } ?>
-	
+<!--  </#######ADD YOUTUBE IFRAME TWICE END########>-->
+		
 	
 <script>
 
@@ -225,7 +248,7 @@ jQuery(function(){
 	
 	var data_<?php echo $sliderID; ?> = [];      
 	var event_stack_<?php echo $sliderID; ?> = [];
-	huge_video_playing['video_is_playing_'+<?php echo $sliderID; ?>]=false;
+	//huge_video_playing['video_is_playing_'+<?php echo $sliderID; ?>]=false;
 	<?php
         
                 $args = array(
@@ -733,9 +756,9 @@ jQuery(function(){
 		
         if (data_<?php echo $sliderID; ?>[key]) {
 		
-			if(huge_video_playing['video_is_playing_'+<?php echo $sliderID; ?>] && !clicked){
+			/*if(huge_video_playing['video_is_playing_'+<?php echo $sliderID; ?>] && !clicked){
 				return false;
-			}
+			}*/
          
 		 
 		 
@@ -804,9 +827,20 @@ jQuery(function(){
 		  
 		  //errorlogjQuery(".huge_it_slideshow_image_wrap_<?php echo $sliderID; ?>").after("--cur-key="+current_key+" --cur-img-class="+current_image_class+" nxt-img-class="+next_image_class+"--");
 			 huge_it_move_dots_<?php echo $sliderID; ?>();
-			<?php foreach ($images as $key => $image_row) {if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtube') !== false){	?>
-				stopYoutubeVideo();
-			<?php } } ?>
+			<?php foreach ($images as $key => $image_row) {if($image_row->sl_type=="video" and strpos($image_row->image_url,'youtu') !== false){	?>
+						<?php } } ?>
+					/*** <vy api>  for vimeo and youtube stop pause play etc... ***/
+					var nextVideo = jQuery('#video_id_<?php echo $sliderID; ?>_'+key).attr('data-element-id');
+					var currentVideo = jQuery('#video_id_<?php echo $sliderID; ?>_'+current_key).attr('data-element-id');/*** add ***/
+					(currentVideo||nextVideo)&&stopYoutubeVideo(currentVideo,nextVideo);
+					if((jQuery('#player_<?php echo $sliderID; ?>_'+current_key)).hasClass('huge-it-iframe-vimeo')) {
+						jQuery('#player_<?php echo $sliderID; ?>_'+current_key).vimeo('pause');	
+					
+					}
+					if((jQuery('#player_<?php echo $sliderID; ?>_'+key)).hasClass('huge-it-iframe-vimeo') && ('<?php echo $slidervideoautoplay;?>' == 'on')) {
+						jQuery('#player_<?php echo $sliderID; ?>_'+key).vimeo('play');
+					}
+					/*** </vy api>***/					
 			window.clearInterval(huge_interval['huge_it_playInterval_'+<?php echo $sliderID; ?>]);
 			play_<?php echo $sliderID; ?>();
         }
@@ -950,9 +984,14 @@ jQuery(function(){
         });
       });
       jQuery(window).blur(function() {
-        event_stack_<?php echo $sliderID; ?> = [];
-     //   window.clearInterval(huge_interval['huge_it_playInterval_'+<?php echo $sliderID; ?>]);
-      });      
+    //    event_stack_<?php echo $sliderID; ?> = [];
+	console.log(event_stack_<?php echo $sliderID; ?>);
+        window.clearInterval(huge_interval['huge_it_playInterval_'+<?php echo $sliderID; ?>]);
+      });  
+      jQuery(window).focus(function() {
+    //    event_stack_<?php echo $sliderID; ?> = [];
+		play_<?php echo $sliderID; ?>()      
+	});     
     </script>
 <style>
 	.thumb_image{
@@ -1246,21 +1285,22 @@ jQuery(function(){
 						?>
 						<li  class="huge_it_slideshow_image<?php if ($i != $current_image_id) {$current_key = $key; echo '_second';} ?>_item_<?php echo $sliderID; ?>" id="image_id_<?php echo $sliderID.'_'.$i ?>">      
 							<?php 
-								if(strpos($image_row->image_url,'youtube') !== false || strpos($rowimages->image_url,'youtu') !== false){
+								if(strpos($image_row->image_url,'youtube') !== false || strpos($image_row->image_url,'youtu') !== false){
 									$video_thumb_url=get_youtube_id_from_url($image_row->image_url); 
 								?>
 									
-									<div id="video_id_<?php echo $sliderID;?>_<?php echo $key ;?>" class="huge_it_video_frame_<?php echo $sliderID; ?>"></div>
-									<div class="thumb_wrapper" data-rowid="<?php echo $image_row->id; ?>" onclick="thevid=document.getElementById('video_id_<?php echo $sliderID;?>_<?php echo $key ;?>'); thevid.style.display='block'; this.style.display='none'">
+								<div id="video_id_<?php echo $sliderID;?>_<?php echo $key ;?>"  data-element-id="<?php echo $image_row->id;?>" class="huge_it_video_frame_<?php echo $sliderID; ?> huge-it-iframe <?php if ($i == $current_image_id) {$current_key = $key; echo ($slidervideoautoplay=='off')?'':'autoplay';} ?>"></div>
+									<!--<div class="thumb_wrapper" data-rowid="<?php echo $image_row->id; ?>" onclick="thevid=document.getElementById('video_id_<?php echo $sliderID;?>_<?php echo $key ;?>'); thevid.style.display='block'; this.style.display='none'">
 												<img  class="thumb_image" src="https://i.ytimg.com/vi/<?php echo $video_thumb_url; ?>/hqdefault.jpg">
 												<div class="play-button-slider youtube-icon"></div>
-									</div>
+									</div>-->
 							<?php }else {
 									$vimeo = $image_row->image_url;
-									$imgid =  end(explode( "/", $vimeo ));
+									$imgid = explode( "/", $vimeo );
+									$imgid =  end($imgid);
 									
 							?>					
-								<iframe id="player_<?php echo $key ;?>"  class="huge_it_video_frame_<?php echo $sliderID; ?>" src="//player.vimeo.com/video/<?php echo $imgid; ?>?api=1&player_id=player_<?php echo $key ;?>&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
+								<iframe id="player_<?php echo $sliderID ;?>_<?php echo $key ;?>" data-element-id="<?php echo $image_row->id;?>"  class="huge_it_video_frame_<?php echo $sliderID; ?>  huge-it-iframe-vimeo <?php if ($i == $current_image_id) {$current_key = $key; echo ($slidervideoautoplay=='off')?'':'autoplay';} ?>" src="//player.vimeo.com/video/<?php echo $imgid; ?>?api=1&player_id=player_<?php echo $key ;?>&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
 							<?php } ?>
 						</li>
 					<?php
@@ -1380,7 +1420,8 @@ jQuery(document).ready(function($) {
 							}else if (strpos($image_row->image_url,'vimeo') !== false) {	
 											$liclass="vimeo";
 											$vimeo = $image_row->image_url;
-											$imgid =  end(explode( "/", $vimeo ));
+											$imgid = explode( "/", $vimeo );
+											$imgid =  end($imgid);
 											$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$imgid.".php"));
 											$imgsrc=$hash[0]['thumbnail_large'];
 											$thumburl ='<img src="'.$imgsrc.'" alt="" />';

@@ -776,7 +776,8 @@ jQuery(document).ready(function($){
 										}else if (strpos($rowimages->image_url,'vimeo') !== false) {	
 											$liclass="vimeo";
 											$vimeo = $rowimages->image_url;
-											$imgid =  end(explode( "/", $vimeo ));
+											$imgid = explode( "/", $vimeo );
+											$imgid =  end($imgid);
 											$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$imgid.".php"));
 											$imgsrc=esc_html($hash[0]['thumbnail_large']);
 											$thumburl ='<img src="'.$imgsrc.'" alt="" />';
@@ -958,6 +959,11 @@ jQuery(document).ready(function($){
 							<input type="hidden" value="off" name="pause_on_hover" />					
 							<input type="checkbox" name="pause_on_hover"  value="on" id="pause_on_hover"  <?php if($row->pause_on_hover  == 'on'){ echo 'checked="checked"'; } ?> />
 						</li>
+						<li>
+							<label for="video_autoplay">Video Autoplay</label>
+							<input type="hidden" value="off" name="video_autoplay" />					
+							<input type="checkbox" name="video_autoplay"  value="on" id="video_autoplay"  <?php if($row->video_autoplay  == 'on'){ echo 'checked="checked"'; } ?> />
+						</li>						
 					</ul>
 						<div id="major-publishing-actions">
 							<div id="publishing-action">
@@ -1279,7 +1285,7 @@ function html_popup_video(){
 				jQuery("#save-buttom").click();
 			});
 			
-			jQuery('#huge_it_add_video_input').change(function(){
+			jQuery('#huge_it_add_video_input').keyup(function(){
 				
 				if (jQuery(this).val().indexOf("youtube") >= 0){
 					jQuery('#add-video-popup-options > div').removeClass('active');

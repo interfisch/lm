@@ -3692,30 +3692,45 @@ div.sb-message a:link, div.sb-message a:visited {
     background-position: 0px 0px;
     width: 280px;
     height: 81px;
+    display: block;
+    float: left;
+    margin: 5px;
 }
 .icon-canon {
     background-image: url(images/lundm-sprite.png);
     background-position: 0px -81px;
     width: 280px;
     height: 81px;
+    display: block;
+    float: left;
+    margin: 5px;
 }
 .icon-ricoh {
     background-image: url(images/lundm-sprite.png);
     background-position: 0px -162px;
     width: 280px;
     height: 81px;
+    display: block;
+    float: left;
+    margin: 5px;
 }
 .icon-riso {
     background-image: url(images/lundm-sprite.png);
     background-position: -280px 0px;
     width: 280px;
     height: 81px;
+    display: block;
+    float: left;
+    margin: 5px;
 }
 .icon-xerox {
     background-image: url(images/lundm-sprite.png);
     background-position: -280px -81px;
     width: 280px;
     height: 81px;
+    display: block;
+    float: left;
+    margin: 5px;
 }
 
 .extern-text{
